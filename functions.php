@@ -4082,22 +4082,19 @@ function et_pb_filterable_portfolio( $atts ) {
 					<?php endif; ?>
 							<?php print_thumbnail( $thumb, $thumbnail["use_timthumb"], $titletext, $width, $height ); ?>
 					<?php if ( 'on' !== $fullwidth ) : ?>
-							<span class="et_overlay"></span>
+							<div class="meta">
+								<span class="et_overlay">
+									<?php if ( 'on' === $show_title ) : ?>
+										<h3><?php the_title(); ?></h3>
+									<?php endif; ?>
+								</span>
+							</div>
 						</span>
 					<?php endif; ?>
 					</a>
 			<?php
 				endif;
 			?>
-
-			<?php if ( 'on' === $show_title ) : ?>
-				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-			<?php endif; ?>
-
-			<?php if ( 'on' === $show_categories ) : ?>
-				<p class="post-meta"><?php echo get_the_term_list( get_the_ID(), 'project_category', '', ', ' ); ?></p>
-			<?php endif; ?>
-
 			</div><!-- .et_pb_portfolio_item -->
 			<?php
 		}
